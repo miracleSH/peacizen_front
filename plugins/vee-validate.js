@@ -6,7 +6,7 @@ import { required, digits, numeric, email, confirmed, regex } from 'vee-validate
 extend('limit', (value, params) => {
   const [min, max] = params
   if ((value && value.length < min) || value.length > max) {
-    return `{_field_} 은(는) ${min}자 ~ ${max}자로 입력해 주세요`
+    return `{_field_}은(는) ${min}자 ~ ${max}자로 입력해 주세요`
   }
   return true
 })
@@ -21,28 +21,28 @@ extend('password', (value, params) => {
 
 extend('max', (value, args) => {
   if (value.length > Number(args[0])) {
-    return `{_field_} 은(는) ${args}자 이하로 입력해 주세요.`
+    return `{_field_}은(는) ${args}자 이하로 입력해 주세요.`
   }
   return true
 })
 // 기존에 존재하던 required는 message만 변경
 extend('required', {
   ...required,
-  message: '{_field_} 은(는) 반드시 입력해야 합니다'
+  message: '{_field_}은(는) 반드시 입력해야 합니다'
 })
 
 extend('required-select', {
   ...required,
-  message: '{_field_} 은(는) 반드시 선택해야 합니다'
+  message: '{_field_}은(는) 반드시 선택해야 합니다'
 })
 
 extend('numeric', {
   ...numeric,
-  message: '{_field_} 은(는) 숫자로만 구성되어야 합니다'
+  message: '{_field_}은(는) 숫자로만 구성되어야 합니다'
 })
 extend('digits', {
   ...digits,
-  message: '{_field_} 은(는) 11자리 여야 합니다'
+  message: '{_field_}은(는) 11자리 여야 합니다'
 })
 
 extend('email', {
