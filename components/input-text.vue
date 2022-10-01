@@ -76,9 +76,6 @@ export default {
       this.val = this.value
     }
   },
-  created () {
-    console.log(this.$slots.icon)
-  },
   methods: {
     onInput () {
       this.$emit('input', this.val)

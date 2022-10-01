@@ -212,7 +212,6 @@ export default {
   },
   methods: {
     setAddress (value) {
-      console.log(value)
       this.address = value
     },
     submit () {
@@ -222,6 +221,10 @@ export default {
         password: this.password,
         address: this.address,
         phone: this.phone
+      }).then((_res) => {
+        console.log(_res)
+      }).catch((_err) => {
+        console.log(_err)
       })
     }
   }
