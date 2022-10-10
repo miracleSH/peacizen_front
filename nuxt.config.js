@@ -44,15 +44,23 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/proxy'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true
+    proxy: true,
+    baseURL: '/',
+    debug: true
   },
   proxy: {
-    '/api': 'http://localhost:8080'
+    '/api': {
+      target: 'http://localhost:8080',
+      pathRewrite: {
+        '^/api': '/api'
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

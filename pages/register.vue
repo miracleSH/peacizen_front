@@ -131,7 +131,7 @@
           :name="'비밀번호 확인'"
           :placeholder="'비밀번호 확인'"
           :type="'password'"
-          :rules="{ required: true, confirmed: '비밀번호 확인' }"
+          :rules="{ required: true, confirmed: '비밀번호' }"
         >
           <template #icon>
             <div
@@ -222,9 +222,10 @@ export default {
         address: this.address,
         phone: this.phone
       }).then((_res) => {
-        console.log(_res)
-      }).catch((_err) => {
-        console.log(_err)
+        if (_res.status === 200) {
+          alert('회원가입 되었습니다. 로그인 화면으로 이동합니다.')
+          this.$nuxt.$router.push({ name: 'login' })
+        }
       })
     }
   }
